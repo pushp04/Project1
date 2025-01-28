@@ -11,14 +11,15 @@ const { test, expect } = require('@playwright/test');
 //     await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 // });
 
-test('browser test', async ({page}) => {
+test('browser test', async ({ page }) => {
     await page.pause();
     await page.goto("https://www.saucedemo.com/");
     await page.locator("[placeholder='Username']").click();
     await page.locator('[data-test="username"]').fill('standard_user');
-    await page.locator("//input[@type='password']").click();-
-    await page.locator('[data-test="password"]').fill('secret_sauce');
+    await page.locator("//input[@type='password']").click(); -
+     await page.locator('[data-test="password"]').fill('secret_sauce');
     await page.locator('[data-test="login-button"]').click();
     // await page.mouse.click(100,100);
+
 });
 
