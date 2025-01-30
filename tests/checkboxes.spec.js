@@ -13,16 +13,25 @@ test('radio buttons', async ({ page }) => {
     // await expect(await page.locator('#friday').isChecked()).toBeFalsy();
     
     //multi Select checkboxes
-    const days=['#sunday','#monday','#friday','#saturday']
-    for(const day of days){
-        await page.locator(day).check();
+    // const days=['#sunday','#monday','#friday','#saturday']
+    // for(const day of days){
+    //     await page.locator(day).check();
+    // }
+
+    // for(const day of days){
+    //     await page.locator(day).uncheck();
+    // }
+
+    const week=await page.$$("//label[contains(text(),'Days:')]/../div//input")
+
+    for(let ele of week){
+        await ele.check();
     }
 
-    for(const day of days){
-        await page.locator(day).uncheck();
+    for(let ele of week){
+        await ele.uncheck();
     }
-
-    // await page.waitForTimeout(5000);
+    await page.waitForTimeout(5000);
 
 
 });
